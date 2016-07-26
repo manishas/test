@@ -84,15 +84,15 @@ jobs:
 #      - TASK: managed
 
 # TEST deployment for BOX to GKE
-  - name: box-test-gke
-    type: gkeDeploy
-    steps:
-      - IN: box-man
-      - IN: env-test-gke
-      - IN: box-t-params
-      - IN: box-t-gke-params
-      - IN: trigger-test-deploy-box
-      - TASK: managed
+  # - name: box-test-gke
+  #   type: gkeDeploy
+  #   steps:
+  #     - IN: box-man
+  #     - IN: env-test-gke
+  #     - IN: box-t-params
+  #     - IN: box-t-gke-params
+  #     - IN: trigger-test-deploy-box
+  #     - TASK: managed
       
 # # execute custom script
 #   - name: execute-sample-script
