@@ -15,6 +15,14 @@ jobs:
       - IN: trigger-test-deploy-dv
       - TASK: managed
 
+# CI for VISUALIZER
+  - name: dv-ci
+    type: runCI
+    steps:
+      - IN: dv-repo
+      - TASK: managed
+      - OUT: dv-img
+
 # deploy visualizer to TEST
 
 # TEST deployment for VISUALIZER to Amazon ECS
@@ -59,6 +67,14 @@ jobs:
       - IN: box-img-opts
       - TASK: managed
         deployMethod: blue-green
+
+# CI for VISUALIZER
+  - name: box-ci
+    type: runCI
+    steps:
+      - IN: box-repo
+      - TASK: managed
+      - OUT: box-img
 
 # TEST deployment for BOX to Amazon ECS
   - name: box-test-aws-ecs

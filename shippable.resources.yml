@@ -33,6 +33,14 @@ resources:
 
 # add visualizer resources to pipeline for CI
 
+# REPO of VISUALIZER code
+  - name: dv-repo
+    type: gitRepo
+    integration: github-manishas
+    pointer:
+      sourceName: manishas/dv-1
+      branch: master
+
 # Docker Image for VISUALIZER
   - name: dv-img
     type: image
@@ -63,6 +71,14 @@ resources:
 # ################################
 
 # add BOX resources to pipeline
+
+# REPO of VISUALIZER code
+  - name: box-repo
+    type: gitRepo
+    integration: github-manishas
+    pointer:
+      sourceName: manishas/box-1
+      branch: master
 
 # Docker Image for BOX
   - name: box-img
