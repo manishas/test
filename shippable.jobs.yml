@@ -70,7 +70,7 @@ jobs:
       - IN: box-t-ecs-params
       - IN: trigger-test-deploy-box
       - TASK: managed
-      - OUT: trigger-post-deploy-script
+#      - OUT: trigger-post-deploy-script
 
 # TEST deployment for BOX to Joyent Triton
 #  - name: box-test-triton
