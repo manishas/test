@@ -39,15 +39,15 @@ jobs:
 #      - TASK: managed
 
 # TEST deployment for VISUALIZER to GKE
-  - name: dv-test-gke
-    type: gkeDeploy
-    steps:
-      - IN: dv-man
-      - IN: dv-params
-      - IN: box-t-gke-params
-      - IN: env-test-gke
-      - IN: trigger-test-deploy-dv
-      - TASK: managed
+  # - name: dv-test-gke
+  #   type: gkeDeploy
+  #   steps:
+  #     - IN: dv-man
+  #     - IN: dv-params
+  #     - IN: box-t-gke-params
+  #     - IN: env-test-gke
+  #     - IN: trigger-test-deploy-dv
+  #     - TASK: managed
 
 # ################################
 
