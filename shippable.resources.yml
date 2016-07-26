@@ -7,19 +7,27 @@ resources:
 # add TEST environment
 
 # add TEST env - AWS cluster
-  - name: env-test-ecs-02
+  - name: env-test-ecs
     type: cluster
-    integration: ttrahan-aws
+    integration: demo-manishas-ecs
     pointer:
       sourceName : "demo-shippable-ecs-test"
       region: "us-east-1"
 
-# add TEST env - TRITON CLUSTER
-  - name: env-test-triton
+# add TEST env - GKE
+  - name: env-test-gke
     type: cluster
-    integration: ttrahan-tpc
+    integration: demo-manishas-gke
     pointer:
-      region: "us-east-1"
+      sourceName : "demo-shippable-gke-test"
+      region: "us-central1-b"
+      
+# add TEST env - TRITON CLUSTER
+#  - name: env-test-triton
+##    type: cluster
+#    integration: ttrahan-tpc
+#    pointer:
+#      region: "us-east-1"
 
 ################################
 
@@ -28,12 +36,12 @@ resources:
 # Docker Image for VISUALIZER
   - name: dv-img
     type: image
-    integration: ttrahan-dh
+    integration: dh-manishas
     pointer:
-      sourceName: ttrahan/dv
+      sourceName: "manishas/dv-1"
       isPull: false
     seed:
-      versionName: triton.latest
+      versionName: master.latest
 
 # Docker Image Options for VISUALIZER
   - name: dv-img-opts
@@ -50,7 +58,7 @@ resources:
     type: params
     version:
       params:
-        MONGO_API_URL: "https://api.mlab.com/api/1/databases/box-pipev2/collections/boxes?apiKey=6Q_DxNm5eS5lrKc39KTILq_bpfq19L91"
+        MONGO_API_URL: "https://api.mlab.com/api/1/databases/box-pipev2/collections/boxes?apiKey=Smhjk378q5ohsjDRelOOzNIybpO6Aqet"
 
 # ################################
 
@@ -59,12 +67,12 @@ resources:
 # Docker Image for BOX
   - name: box-img
     type: image
-    integration: ttrahan-dh
+    integration: dh-manishas
     pointer:
-      sourceName: "ttrahan/box"
+      sourceName: "manishas/box-1"
       isPull: false
     seed:
-      versionName: triton.latest
+      versionName: master.latest
 
 # Docker Image Options for BOX
   - name: box-img-opts
@@ -78,9 +86,9 @@ resources:
     type: params
     version:
       params:
-        DB_HOST: "ds017544.mlab.com"
+        DB_HOST: "ds031975.mlab.com"
         DB_NAME: "box-pipev2"
-        DB_PORT: "17544"
+        DB_PORT: "31975"
         DB_USERNAME: "demo"
         DB_PASSWORD: "demo"
 
@@ -92,8 +100,8 @@ resources:
         ENVIRONMENT: "test-ecs"
 
 # TEST env vars for BOX for Joyent Triton
-  - name: box-t-tpc-params
+  - name: box-t-gke-params
     type: params
     version:
       params:
-        ENVIRONMENT: "test-triton"
+        ENVIRONMENT: "test-gke"
