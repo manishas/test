@@ -6,15 +6,15 @@ resources:
 
 # # add visualizer resources to pipeline for CI
 
-# # Docker Image for VISUALIZER
-#   - name: dv-img
-#     type: image
-#     integration: dh-manishas
-#     pointer:
-#       sourceName: "manishas/dv-1"
-#       isPull: false
-#     seed:
-#       versionName: master.latest
+# Docker Image for VISUALIZER
+  - name: dv-img
+    type: image
+    integration: dh-manishas
+    pointer:
+      sourceName: "manishas/dv-1"
+      isPull: false
+    seed:
+      versionName: master.latest
 
 # # Docker Image Options for VISUALIZER
 #   - name: dv-img-opts
