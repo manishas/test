@@ -41,6 +41,7 @@ jobs:
     type: ecsDeploy
     steps:
       - IN: box-man
+      - IN: box-t-ecs-scaler
       - IN: env-test-ecs
       - IN: box-t-params
       - IN: box-t-ecs-params

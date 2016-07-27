@@ -54,6 +54,12 @@ resources:
     seed:
       versionName: master.latest
 
+# TEST replica controller for BOX
+  - name: box-t-ecs-scaler
+    type: replicas
+    version:
+      count: 1
+
 # Docker Image Options for BOX
   - name: box-img-opts
     type: dockerOptions
