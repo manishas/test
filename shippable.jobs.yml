@@ -6,23 +6,15 @@ jobs:
 
 # add visualizer pipeline workflow thru hub
 
-# # manifest gen for VISUALIZER
-#   - name: dv-man
-#     type: manifest
-#     steps:
-#       - IN: dv-img
-#       - IN: dv-img-opts
-#       - TASK: managed
+# manifest gen for VISUALIZER
+  - name: dv-man
+    type: manifest
+    steps:
+      - IN: dv-img
+      - IN: dv-img-opts
+      - TASK: managed
 
-# # CI for VISUALIZER
-#   - name: dv-ci
-#     type: runCI
-#     steps:
-#       - IN: dv-repo
-#       - TASK: managed
-#       - OUT: dv-img
-
-# # deploy visualizer to TEST
+# deploy visualizer to TEST
 
 # # TEST deployment for VISUALIZER to Amazon ECS
 #   - name: dv-test-ecs
@@ -43,7 +35,7 @@ jobs:
 #       - TASK: managed
 #         deployMethod: blue-green
 
-# # CI for VISUALIZER
+# # CI for BOX
 #   - name: box-ci
 #     type: runCI
 #     steps:
@@ -61,5 +53,13 @@ jobs:
 #       - IN: box-t-ecs-params
 #       - TASK: managed
 
+#remove
 
+# # CI for VISUALIZER
+#   - name: dv-ci
+#     type: runCI
+#     steps:
+#       - IN: dv-repo
+#       - TASK: managed
+#       - OUT: dv-img
 
