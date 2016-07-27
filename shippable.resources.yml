@@ -2,129 +2,105 @@ resources:
 
 # resources for the box demo pipelines from CI thru TEST environment
 
-################################
+#######1: Create DV pipeline
 
-# # add visualizer resources to pipeline for CI
-
-# Docker Image for VISUALIZER
-  - name: dv-img
-    type: image
-    integration: dh-manishas
-    pointer:
-      sourceName: "manishas/dv-1"
-      isPull: false
-    seed:
-      versionName: master.latest
-
-# Docker Image Options for VISUALIZER
-  - name: dv-img-opts
-    type: dockerOptions
-    version:
-      memory: 128
-      cpuShares: 256
-      portMappings:
-        - 80:80
-      publishAllPorts : true
-
-# env vars for VISUALIZER
-  - name: dv-params
-    type: params
-    version:
-      params:
-        MONGO_API_URL: "https://api.mlab.com/api/1/databases/box-pipev2/collections/boxes?apiKey=QRsFUOV7XbNdHfTnJ7KU9bgQdnun-m_I"
-
-  
-# add TEST env - AWS cluster
-  - name: env-test-ecs
-    type: cluster
-    integration: demo-manishas-ecs
-    pointer:
-      sourceName : "demo-shippable-ecs-test"
-      region: "us-east-1"
-   
-# # # add BOX resources to pipeline
-
-# REPO of BOX code
-  - name: box-repo
-    type: gitRepo
-    integration: github-manishas
-    pointer:
-      sourceName: manishas/box-1
-      branch: master
-
-
-
-# Docker Image for BOX
-  - name: box-img
-    type: image
-    integration: dh-manishas
-    pointer:
-      sourceName: "manishas/box-1"
-      isPull: false
-    seed:
-      versionName: master.latest
-
-# TEST replica controller for BOX
-  - name: box-t-ecs-scaler
-    type: replicas
-    version:
-      count: 1
-
-# Docker Image Options for BOX
-  - name: box-img-opts
-    type: dockerOptions
-    version:
-      memory: 64
-      cpu-shares: 512
-
-# TEST env vars for BOX
-  - name: box-t-params
-    type: params
-    version:
-      params:
-        DB_HOST: "ds031975.mlab.com"
-        DB_NAME: "box-pipev2"
-        DB_PORT: "31975"
-        DB_USERNAME: "demo"
-        DB_PASSWORD: "demo"
-
-# TEST env vars for BOX for Amazon ECS
-  - name: box-t-ecs-params
-    type: params
-    version:
-      params:
-        ENVIRONMENT: "test-ecs"
-
-
-
-# add TEST environment
-
-
-#remove
-
-# # REPO of VISUALIZER code
-#   - name: dv-repo
-#     type: gitRepo
-#     integration: github-manishas
+# # Docker Image for VISUALIZER
+#   - name: dv-img
+#     type: image
+#     integration: dh-manishas
 #     pointer:
-#       sourceName: manishas/dv-1
-#       branch: master
+#       sourceName: "manishas/dv-1"
+#       isPull: false
+#     seed:
+#       versionName: master.latest
 
-# # add TEST env - GKE
-#   - name: env-test-gke
-#     type: cluster
-#     integration: demo-manishas-gke
-#     pointer:
-#       sourceName : "demo-shippable-gke-test"
-#       region: "us-central1-b"
+# # Docker Image Options for VISUALIZER
+#   - name: dv-img-opts
+#     type: dockerOptions
+#     version:
+#       memory: 128
+#       cpuShares: 256
+#       portMappings:
+#         - 80:80
+#       publishAllPorts : true
 
-
-
-
-
-# # TEST env vars for BOX for GKE
-#   - name: box-t-gke-params
+# # env vars for VISUALIZER
+#   - name: dv-params
 #     type: params
 #     version:
 #       params:
-#         ENVIRONMENT: "test-gke"
+#         MONGO_API_URL: "https://api.mlab.com/api/1/databases/box-pipev2/collections/boxes?apiKey=QRsFUOV7XbNdHfTnJ7KU9bgQdnun-m_I"
+
+# # add TEST env - AWS cluster
+#   - name: env-test-ecs
+#     type: cluster
+#     integration: demo-manishas-ecs
+#     pointer:
+#       sourceName : "demo-shippable-ecs-test"
+#       region: "us-east-1"
+
+#######1: EOF Create DV pipeline
+
+
+
+
+#######2: CI for BOX
+   
+# # # add BOX resources to pipeline
+
+# # REPO of BOX code
+#   - name: box-repo
+#     type: gitRepo
+#     integration: github-manishas
+#     pointer:
+#       sourceName: manishas/box-1
+#       branch: master
+
+#######2: EOF CI for BOX
+
+
+
+
+#######3: Test pipeline for BOX
+# # Docker Image for BOX
+#   - name: box-img
+#     type: image
+#     integration: dh-manishas
+#     pointer:
+#       sourceName: "manishas/box-1"
+#       isPull: false
+#     seed:
+#       versionName: master.latest
+
+# # TEST replica controller for BOX
+#   - name: box-t-ecs-scaler
+#     type: replicas
+#     version:
+#       count: 1
+
+# # Docker Image Options for BOX
+#   - name: box-img-opts
+#     type: dockerOptions
+#     version:
+#       memory: 64
+#       cpu-shares: 512
+
+# # TEST env vars for BOX
+#   - name: box-t-params
+#     type: params
+#     version:
+#       params:
+#         DB_HOST: "ds031975.mlab.com"
+#         DB_NAME: "box-pipev2"
+#         DB_PORT: "31975"
+#         DB_USERNAME: "demo"
+#         DB_PASSWORD: "demo"
+
+# # TEST env vars for BOX for Amazon ECS
+#   - name: box-t-ecs-params
+#     type: params
+#     version:
+#       params:
+#         ENVIRONMENT: "test-ecs"
+
+#######3: EOF Test pipeline for BOX
