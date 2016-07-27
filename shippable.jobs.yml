@@ -8,24 +8,24 @@ jobs:
 
 #######1: Create DV pipeline
 
-# # manifest gen for VISUALIZER
-#   - name: dv-man
-#     type: manifest
-#     steps:
-#       - IN: dv-img
-#       - IN: dv-img-opts
-#       - TASK: managed
+# manifest gen for VISUALIZER
+  - name: dv-man
+    type: manifest
+    steps:
+      - IN: dv-img
+      - IN: dv-img-opts
+      - TASK: managed
 
-# deploy visualizer to TEST
+deploy visualizer to TEST
 
-# # TEST deployment for VISUALIZER to Amazon ECS
-#   - name: dv-test-ecs
-#     type: ecsDeploy
-#     steps:
-#       - IN: dv-man
-#       - IN: dv-params
-#       - IN: env-test-ecs
-#       - TASK: managed
+# TEST deployment for VISUALIZER to Amazon ECS
+  - name: dv-test-ecs
+    type: ecsDeploy
+    steps:
+      - IN: dv-man
+      - IN: dv-params
+      - IN: env-test-ecs
+      - TASK: managed
 
 #######1: EOF Create DV pipeline
 
