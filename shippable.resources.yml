@@ -41,7 +41,7 @@ resources:
     pointer:
       sourceName : "demo-shippable-ecs-test"
       region: "us-east-1"
-
+   
 # # # add BOX resources to pipeline
 
 # # Docker Image for BOX
