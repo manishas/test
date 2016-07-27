@@ -12,7 +12,6 @@ jobs:
     steps:
       - IN: dv-img
       - IN: dv-img-opts
-      - IN: trigger-test-deploy-dv
       - TASK: managed
 
 # CI for VISUALIZER
