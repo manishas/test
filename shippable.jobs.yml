@@ -6,61 +6,61 @@ jobs:
 
 # add visualizer pipeline workflow thru hub
 
-# # manifest gen for VISUALIZER
-#   - name: dv-man
-#     type: manifest
-#     steps:
-#       - IN: dv-img
-#       - IN: dv-img-opts
-#       - IN: trigger-test-deploy-dv
-#       - TASK: managed
+# manifest gen for VISUALIZER
+  - name: dv-man
+    type: manifest
+    steps:
+      - IN: dv-img
+      - IN: dv-img-opts
+      - IN: trigger-test-deploy-dv
+      - TASK: managed
 
-# # CI for VISUALIZER
-#   - name: dv-ci
-#     type: runCI
-#     steps:
-#       - IN: dv-repo
-#       - TASK: managed
-#       - OUT: dv-img
+# CI for VISUALIZER
+  - name: dv-ci
+    type: runCI
+    steps:
+      - IN: dv-repo
+      - TASK: managed
+      - OUT: dv-img
 
-# # deploy visualizer to TEST
+# deploy visualizer to TEST
 
-# # TEST deployment for VISUALIZER to Amazon ECS
-#   - name: dv-test-ecs
-#     type: ecsDeploy
-#     steps:
-#       - IN: dv-man
-#       - IN: dv-params
-#       - IN: env-test-ecs
-#       - TASK: managed
+# TEST deployment for VISUALIZER to Amazon ECS
+  - name: dv-test-ecs
+    type: ecsDeploy
+    steps:
+      - IN: dv-man
+      - IN: dv-params
+      - IN: env-test-ecs
+      - TASK: managed
 
 
-# # manifest gen for BOX
-#   - name: box-man
-#     type: manifest
-#     steps:
-#       - IN: box-img
-#       - IN: box-img-opts
-#       - TASK: managed
-#         deployMethod: blue-green
+# manifest gen for BOX
+  - name: box-man
+    type: manifest
+    steps:
+      - IN: box-img
+      - IN: box-img-opts
+      - TASK: managed
+        deployMethod: blue-green
 
-# # CI for VISUALIZER
-#   - name: box-ci
-#     type: runCI
-#     steps:
-#       - IN: box-repo
-#       - TASK: managed
-#       - OUT: box-img
+# CI for VISUALIZER
+  - name: box-ci
+    type: runCI
+    steps:
+      - IN: box-repo
+      - TASK: managed
+      - OUT: box-img
 
-# # TEST deployment for BOX to Amazon ECS
-#   - name: box-test-aws-ecs
-#     type: ecsDeploy
-#     steps:
-#       - IN: box-man
-#       - IN: env-test-ecs
-#       - IN: box-t-params
-#       - IN: box-t-ecs-params
-#       - TASK: managed
+# TEST deployment for BOX to Amazon ECS
+  - name: box-test-aws-ecs
+    type: ecsDeploy
+    steps:
+      - IN: box-man
+      - IN: env-test-ecs
+      - IN: box-t-params
+      - IN: box-t-ecs-params
+      - TASK: managed
 
 
 
