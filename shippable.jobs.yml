@@ -25,6 +25,13 @@ jobs:
       - IN: env-test-ecs
       - TASK: managed
 
+# CI for BOX
+  - name: box-ci
+    type: runCI
+    steps:
+      - IN: box-repo
+      - TASK: managed
+      - OUT: box-img
 
 # # manifest gen for BOX
 #   - name: box-man
@@ -35,13 +42,6 @@ jobs:
 #       - TASK: managed
 #         deployMethod: blue-green
 
-# # CI for BOX
-#   - name: box-ci
-#     type: runCI
-#     steps:
-#       - IN: box-repo
-#       - TASK: managed
-#       - OUT: box-img
 
 # # TEST deployment for BOX to Amazon ECS
 #   - name: box-test-aws-ecs
