@@ -16,14 +16,14 @@ jobs:
 
 # deploy visualizer to TEST
 
-# # TEST deployment for VISUALIZER to Amazon ECS
-#   - name: dv-test-ecs
-#     type: ecsDeploy
-#     steps:
-#       - IN: dv-man
-#       - IN: dv-params
-#       - IN: env-test-ecs
-#       - TASK: managed
+# TEST deployment for VISUALIZER to Amazon ECS
+  - name: dv-test-ecs
+    type: ecsDeploy
+    steps:
+      - IN: dv-man
+      - IN: dv-params
+      - IN: env-test-ecs
+      - TASK: managed
 
 
 # # manifest gen for BOX
