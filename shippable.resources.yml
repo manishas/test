@@ -44,15 +44,25 @@ resources:
    
 # # # add BOX resources to pipeline
 
-# # Docker Image for BOX
-#   - name: box-img
-#     type: image
-#     integration: dh-manishas
-#     pointer:
-#       sourceName: "manishas/box-1"
-#       isPull: false
-#     seed:
-#       versionName: master.latest
+# REPO of BOX code
+  - name: box-repo
+    type: gitRepo
+    integration: github-manishas
+    pointer:
+      sourceName: manishas/box-1
+      branch: master
+
+
+
+# Docker Image for BOX
+  - name: box-img
+    type: image
+    integration: dh-manishas
+    pointer:
+      sourceName: "manishas/box-1"
+      isPull: false
+    seed:
+      versionName: master.latest
 
 # # TEST replica controller for BOX
 #   - name: box-t-ecs-scaler
@@ -109,13 +119,7 @@ resources:
 #       region: "us-central1-b"
 
 
-# # REPO of BOX code
-#   - name: box-repo
-#     type: gitRepo
-#     integration: github-manishas
-#     pointer:
-#       sourceName: manishas/box-1
-#       branch: master
+
 
 
 # # TEST env vars for BOX for GKE
