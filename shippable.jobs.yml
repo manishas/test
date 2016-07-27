@@ -25,13 +25,13 @@ jobs:
       - IN: env-test-ecs
       - TASK: managed
 
-# CI for BOX
-  - name: box-ci
-    type: runCI
-    steps:
-      - IN: box-repo
-      - TASK: managed
-      - OUT: box-img
+# # CI for BOX
+#   - name: box-ci
+#     type: runCI
+#     steps:
+#       - IN: box-repo
+#       - TASK: managed
+#       - OUT: box-img
 
 # # manifest gen for BOX
 #   - name: box-man
