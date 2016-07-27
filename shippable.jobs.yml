@@ -16,7 +16,7 @@ jobs:
       - IN: dv-img-opts
       - TASK: managed
 
-deploy visualizer to TEST
+#deploy visualizer to TEST
 
 # TEST deployment for VISUALIZER to Amazon ECS
   - name: dv-test-ecs
