@@ -55,37 +55,32 @@ resources:
     seed:
       versionName: master.latest
 
-# # Docker Image Options for BOX
-#   - name: box-img-opts
-#     type: dockerOptions
-#     version:
-#       memory: 64
-#       cpu-shares: 512
+# Docker Image Options for BOX
+  - name: box-img-opts
+    type: dockerOptions
+    version:
+      memory: 64
+      cpu-shares: 512
 
-# # TEST env vars for BOX
-#   - name: box-t-params
-#     type: params
-#     version:
-#       params:
-#         DB_HOST: "ds031975.mlab.com"
-#         DB_NAME: "box-pipev2"
-#         DB_PORT: "31975"
-#         DB_USERNAME: "demo"
-#         DB_PASSWORD: "demo"
+# TEST env vars for BOX
+  - name: box-t-params
+    type: params
+    version:
+      params:
+        DB_HOST: "ds031975.mlab.com"
+        DB_NAME: "box-pipev2"
+        DB_PORT: "31975"
+        DB_USERNAME: "demo"
+        DB_PASSWORD: "demo"
 
-# # TEST env vars for BOX for Amazon ECS
-#   - name: box-t-ecs-params
-#     type: params
-#     version:
-#       params:
-#         ENVIRONMENT: "test-ecs"
+# TEST env vars for BOX for Amazon ECS
+  - name: box-t-ecs-params
+    type: params
+    version:
+      params:
+        ENVIRONMENT: "test-ecs"
 
-# # TEST env vars for BOX for GKE
-#   - name: box-t-gke-params
-#     type: params
-#     version:
-#       params:
-#         ENVIRONMENT: "test-gke"
+
 
 # add TEST environment
 
@@ -116,3 +111,11 @@ resources:
 #     pointer:
 #       sourceName: manishas/box-1
 #       branch: master
+
+
+# # TEST env vars for BOX for GKE
+#   - name: box-t-gke-params
+#     type: params
+#     version:
+#       params:
+#         ENVIRONMENT: "test-gke"
