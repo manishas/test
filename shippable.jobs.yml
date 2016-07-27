@@ -32,32 +32,8 @@ jobs:
       - IN: dv-man
       - IN: dv-params
       - IN: env-test-ecs
-      - IN: trigger-test-deploy-dv
       - TASK: managed
 
-# TEST deployment for VISUALIZER to Joyent Triton
-#  - name: dv-test-triton
-##    type: tripubDeploy
-#    steps:
-#      - IN: dv-man
-#      - IN: dv-params
-#      - IN: box-t-tpc-params
-#      - IN: env-test-triton
-#      - IN: trigger-test-deploy-dv
-#      - TASK: managed
-
-# TEST deployment for VISUALIZER to GKE
-  # - name: dv-test-gke
-  #   type: gkeDeploy
-  #   steps:
-  #     - IN: dv-man
-  #     - IN: dv-params
-  #     - IN: box-t-gke-params
-  #     - IN: env-test-gke
-  #     - IN: trigger-test-deploy-dv
-  #     - TASK: managed
-
-# ################################
 
 # manifest gen for BOX
   - name: box-man
@@ -84,37 +60,7 @@ jobs:
       - IN: env-test-ecs
       - IN: box-t-params
       - IN: box-t-ecs-params
-      - IN: trigger-test-deploy-box
       - TASK: managed
-#      - OUT: trigger-post-deploy-script
 
-# TEST deployment for BOX to Joyent Triton
-#  - name: box-test-triton
-##    type: tripubDeploy
-#    steps:
-#      - IN: box-man
-#      - IN: env-test-triton
-#      - IN: box-t-params
-#      - IN: box-t-tpc-params
-#      - IN: trigger-test-deploy-box
-#      - TASK: managed
 
-# TEST deployment for BOX to GKE
-  # - name: box-test-gke
-  #   type: gkeDeploy
-  #   steps:
-  #     - IN: box-man
-  #     - IN: env-test-gke
-  #     - IN: box-t-params
-  #     - IN: box-t-gke-params
-  #     - IN: trigger-test-deploy-box
-  #     - TASK: managed
-      
-# # execute custom script
-#   - name: execute-sample-script
-#     type: runSh
-#     steps:
-#       - IN: custom-script-repo
-#       - IN: box-test-aws-ecs
-#       - TASK:
-#         - script: ./custom_script.sh
+
