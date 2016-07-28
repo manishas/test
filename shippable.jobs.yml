@@ -51,26 +51,26 @@ jobs:
 
 #######3: Test pipeline for BOX
 
-# # manifest gen for BOX
-#   - name: box-man
-#     type: manifest
-#     steps:
-#       - IN: box-img
-#       - IN: box-img-opts
-#       - TASK: managed
-#         deployMethod: blue-green
+# manifest gen for BOX
+  - name: box-man
+    type: manifest
+    steps:
+      - IN: box-img
+      - IN: box-img-opts
+      - TASK: managed
+        deployMethod: blue-green
 
 
-# # TEST deployment for BOX to Amazon ECS  
-#   - name: box-test-aws-ecs
-#     type: ecsDeploy
-#     steps:
-#       - IN: box-man
-#       - IN: box-t-ecs-scaler
-#       - IN: env-test-ecs
-#       - IN: box-t-params
-#       - IN: box-t-ecs-params
-#       - TASK: managed
+# TEST deployment for BOX to Amazon ECS  
+  - name: box-test-aws-ecs
+    type: ecsDeploy
+    steps:
+      - IN: box-man
+      - IN: box-t-ecs-scaler
+      - IN: env-test-ecs
+      - IN: box-t-params
+      - IN: box-t-ecs-params
+      - TASK: managed
 
 #######3: EOF Test pipeline for BOX
 
