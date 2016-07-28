@@ -35,13 +35,13 @@ jobs:
 
 #######2: CI for BOX
 
-# # CI for BOX
-#   - name: box-ci
-#     type: runCI
-#     steps:
-#       - IN: box-repo
-#       - TASK: managed
-#       - OUT: box-img
+# CI for BOX
+  - name: box-ci
+    type: runCI
+    steps:
+      - IN: box-repo
+      - TASK: managed
+      - OUT: box-img
 
 #######2: EOF CI for BOX
 

@@ -46,25 +46,25 @@ resources:
 
 #######2: CI for BOX
    
-# # add BOX resources to pipeline
+# add BOX resources to pipeline
 
-# # REPO of BOX code
-#   - name: box-repo
-#     type: gitRepo
-#     integration: github-manishas
-#     pointer:
-#       sourceName: manishas/box-1
-#       branch: master
+# REPO of BOX code
+  - name: box-repo
+    type: gitRepo
+    integration: github-manishas
+    pointer:
+      sourceName: manishas/box-1
+      branch: master
 
-# # Docker Image for BOX
-#   - name: box-img
-#     type: image
-#     integration: dh-manishas
-#     pointer:
-#       sourceName: "manishas/box-1"
-#       isPull: false
-#     seed:
-#       versionName: master.latest
+# Docker Image for BOX
+  - name: box-img
+    type: image
+    integration: dh-manishas
+    pointer:
+      sourceName: "manishas/box-1"
+      isPull: false
+    seed:
+      versionName: master.latest
 
 #######2: EOF CI for BOX
 
