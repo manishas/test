@@ -1,12 +1,7 @@
 jobs:
 
-# jobs for the box demo pipelines from CI thru TEST environment
+# jobs for the dv pipeline from CI thru TEST environment
 
-###############################
-
-# add visualizer pipeline workflow thru hub
-
-#######1: Create DV pipeline
 
 # manifest gen for VISUALIZER
   - name: dv-man
@@ -16,7 +11,7 @@ jobs:
       - IN: dv-img-opts
       - TASK: managed
 
-#deploy visualizer to TEST
+#/ manifest gen for VISUALIZER
 
 # TEST deployment for VISUALIZER to Amazon ECS
   - name: dv-test-ecs
@@ -27,49 +22,4 @@ jobs:
       - IN: env-test-ecs
       - TASK: managed
 
-#######1: EOF Create DV pipeline
-
-
-
-
-
-#######2: CI for BOX
-
-# CI for BOX
-#  - name: box-ci
-#    type: runCI
-#    steps:
-#      - IN: box-repo
-#      - TASK: managed
-#      - OUT: box-img
-
-#######2: EOF CI for BOX
-
-
-
-
-
-#######3: Test pipeline for BOX
-
-# manifest gen for BOX
-#  - name: box-man
-#    type: manifest
-#    steps:
-#      - IN: box-img
-#      - IN: box-img-opts
-#      - TASK: managed
-#        deployMethod: blue-green
-
-
-# TEST deployment for BOX to Amazon ECS
-#  - name: box-test-aws-ecs
-#    type: deploy
-#    steps:
-#      - IN: box-man
-#      - IN: box-t-ecs-scaler
-#      - IN: env-test-ecs
-#      - IN: box-t-params
-#      - IN: box-t-ecs-params
-#      - TASK: managed
-
-#######3: EOF Test pipeline for BOX
+# / TEST deployment for VISUALIZER to Amazon ECS
