@@ -36,12 +36,12 @@ jobs:
 #######2: CI for BOX
 
 # CI for BOX
-  - name: box-ci
-    type: runCI
-    steps:
-      - IN: box-repo
-      - TASK: managed
-      - OUT: box-img
+#  - name: box-ci
+#    type: runCI
+#    steps:
+#      - IN: box-repo
+#      - TASK: managed
+#      - OUT: box-img
 
 #######2: EOF CI for BOX
 
@@ -52,25 +52,24 @@ jobs:
 #######3: Test pipeline for BOX
 
 # manifest gen for BOX
-  - name: box-man
-    type: manifest
-    steps:
-      - IN: box-img
-      - IN: box-img-opts
-      - TASK: managed
-        deployMethod: blue-green
+#  - name: box-man
+#    type: manifest
+#    steps:
+#      - IN: box-img
+#      - IN: box-img-opts
+#      - TASK: managed
+#        deployMethod: blue-green
 
 
-# TEST deployment for BOX to Amazon ECS  
-  - name: box-test-aws-ecs
-    type: deploy
-    steps:
-      - IN: box-man
-      - IN: box-t-ecs-scaler
-      - IN: env-test-ecs
-      - IN: box-t-params
-      - IN: box-t-ecs-params
-      - TASK: managed
+# TEST deployment for BOX to Amazon ECS
+#  - name: box-test-aws-ecs
+#    type: deploy
+#    steps:
+#      - IN: box-man
+#      - IN: box-t-ecs-scaler
+#      - IN: env-test-ecs
+#      - IN: box-t-params
+#      - IN: box-t-ecs-params
+#      - TASK: managed
 
 #######3: EOF Test pipeline for BOX
-
